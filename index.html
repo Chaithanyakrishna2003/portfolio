@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="screen and (max-width:800px)" href="tablet.css">
+    <link rel="stylesheet" media="screen and (max-width:530px)" href="phone.css">
+
+</head>
+<body>
+<header>
+            <div class="logo">
+                <img src="images\Screenshot (200).png" width="200" height="40" alt="">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#home" href="#">Home</a></li>
+                    <li><a href="#about" href="#">About Me</a></li>
+                    <li><a href="#portfolio">skills</a></li>
+                    <li><a href="#services">projects</a></li>
+                    <li><a href="#contact">Keep in touch</a></li>
+</ul>
+            </div>
+        </header>
+        <section id="home">
+   <div class="home">
+        <div class="container">
+            <div class="person">
+                <span class="person-overlay"></span>
+                <img src="images\bg pc.jpeg" width="500" height="470" alt="">
+            </div>
+            <div class="home-text">
+                <h6 class="student">Student</h6>
+                <h1 class="name">Chaithanya</h1>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section id="about">
+    <h2 class="headings">ABOUT ME</h2>
+   <div id=intro>
+            <p>
+                Hey there! This is Chaithanya krishna from Tirupati, Andhra Pradesh. I'm currently pursuing my Bachelors' degree from the Indian Institute of Technology(Banaras Hindu University) Varanasi. I'm a competitive programmer, enormously interested in  
+                Data Structures and algorithms,Web-development, Machine Learning, Deep Learning and Data Science. Basically I'm a Tech enthusiast trying to learn that takes my attention and hopefully have a personal growth.
+           </p>
+         
+</div>
+</section>
+<section id="portfolio">
+    <h3 class="headings">SKILLS</h3>
+    <div id=text>
+        <img src="images\cpp.png" width=60, height="60" alt="">
+        <img src="images\ml.png" width=60, height="60" alt="">
+        <img src="images\wd.png" width=60, height="60" alt="">
+        <p>
+         <br>Competitive programming, Data Structures and Algorithms, Web development, Data science, Deep learning, Computer Vision.<br>
+         Languages&Frame works : Open CV, Pandas, NumPy, keras&TensorFlow, Scikit-Learn, Matplotlib.
+       </p>
+    </div>
+</section>
+<section id="services">
+    <h4 class="headings">PROJECTS</h4>
+    <div class="row">
+        <div class="box">
+            <img src="images\mosaic proj pic.jpeg" alt="">
+            <h1 class="headings1">Mosaic</h1><br>
+            <p>
+                • Built a Convolutional Neural Network(CNN) to Identify characters from a hand written captcha data set and numbers
+                using OpenCV. <br><br>
+• Model architecture was trained on EMNIST data set and Applied Image processing techniques like noice removal,
+image augmentation and trained a deep learning model
+.<br><br>
+
+           
+            <h3 style="white-space:pre-wrap;"><a href="https://github.com/Chaithanyakrishna2003/Captcha-solver-Mosiac" target="_blank">View&nbsp;code</a></h3>
+
+        </div>
+        <div class="box">
+            <img src="images\social med proj pic.jpeg" alt="">
+            <h1 class="headings2">Social media website</h1><br>
+            <p>
+                • Implemented and Designed an Idea of including combined features of every Social Media App available in a Single
+                App.
+                <br><br>
+• Made an outlook of website using HTML, CSS. Added Animation using Anime.js to make it look cool.
+<br><br>
+• Will look forward to complete back end in future.
+            </p><br>
+            <h3 style="white-space:pre-wrap;"><a href="https://github.com/Chaithanyakrishna2003/socia_media" target="_blank">View&nbsp;code</a>
+                <h3 style="white-space:pre-wrap;"><a href="https://socia-media-two.vercel.app/" target="_blank">View&nbsp;Website</a></h3></h3>
+        </div>
+        <div class="box">
+            <img src="images\pixelate proj pic.jpeg" alt="">
+            <h1 class="headings3">Pixelate</h1><br>
+            <p>
+                •Simulated Autonomous path robot on PyBullet that used live video feed from an over head camera and applied
+                image processing techniques to make it navigate it through.<br><br>
+• Implement Djikstra Algorithm to find the shortest path abiding the given rules
+.<br><br>
+           
+            <h3 style="white-space:pre-wrap;"><a href="https://github.com/Chaithanyakrishna2003/pixelate" target="_blank">View&nbsp;Code</a></h3>    
+        </div>
+      
+       
+</section>
+   
+<section id="contact">
+    <!-- <h1 class="headings">CONTACT ME</h1> -->  
+    <form class="form">
+        <h1 style="white-space:pre-wrap;">Questions? <a href="mailto:chaithanyakrishna3998@gmail.com" target="_blank">Say&nbsp;hi!</a></h1>
+       
+</section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".name, .student, .small-intro").lettering();
+            anime({
+                targets: '.home .person-overlay',
+                translateX: 1400,
+                delay: 650,
+                duration: 1500,
+                easing: 'easeInSine'
+            })
+            anime({
+                targets: '.home .person img',
+                opacity: 1,
+                delay: 1700,
+                duration: 1000,
+                easing: 'easeInSine'
+            })
+            anime({
+                targets: '.student span',
+                opacity: 1,
+                duration: 1500,
+                easing: 'easeInSine',
+                delay: anime.stagger(100, { start: 2100 })
+            })
+            anime({
+                targets: '.name span',
+                opacity: 1,
+                duration: 3000,
+                easing: 'easeInSine',
+                delay: anime.stagger(100, { start: 3000 })
+            })
+            anime({
+                targets: '.logo',
+                opacity: 1,
+                duration: 5000,
+                delay: 5000
+            })
+            anime({
+                targets: ' .menu li',
+                opacity: 1,
+                duration: 3000,
+                delay: anime.stagger(150, { start:5500})
+            })
+        });
+    </script>
+</body>
+
+</html>
