@@ -2,12 +2,11 @@
 
 Personal portfolio site. **Live at [chaithanyakrishnamunagala.vercel.app](https://chaithanyakrishnamunagala.vercel.app)**
 
-Chaithanya Krishna Munagala, Backend SDE-2 at Alteryx. IIT (BHU) Varanasi, ECE 2024.
+Chaithanya Krishna Munagala, IIT (BHU) Varanasi, ECE 2024.
 
 ## What this is
 
-A single self-contained HTML file with inlined CSS and JavaScript. No framework, no build step,
-no bundler. The only external dependencies are Google Fonts and Font Awesome.
+A single self-contained HTML file with inlined CSS and JavaScript.
 
 The page is deliberately not a static brochure: the content lives in a headless CMS, so projects,
 roles, blog posts, achievements and the About copy can be added or edited without touching code
@@ -35,13 +34,6 @@ Five document types: `project`, `post`, `experience`, `achievement`, and a `site
 holding the hero tagline and About prose.
 
 Text is escaped before `**bold**` markers are converted, so CMS content can never inject markup.
-
-### Editing
-
-Appending `?edit=1` reveals an owner overlay: a pencil on every CMS-backed card that deep links to
-that exact document in Sanity Studio, plus an "Add" control per section. It holds no credentials and
-writes nothing. Every control simply opens Studio, where Sanity's own authentication decides whether
-you may edit. The overlay is per visit and nothing is remembered between loads.
 
 ### Other details
 
