@@ -1,0 +1,10 @@
+# Leftover Maven / IntelliJ scaffold: not part of the site
+pom.xml
+src/
+.mvn/
+target/
+.idea/
+.claude/
+
+# Sanity Studio schemas: source files, not part of the published site
+sanity-schemas/
