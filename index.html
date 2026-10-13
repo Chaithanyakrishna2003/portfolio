@@ -1239,7 +1239,18 @@
   header{box-shadow:0 1px 0 rgba(15,21,35,.04);}
   html[data-theme="dark"] header{box-shadow:0 1px 0 rgba(0,0,0,.5);}
   /* ============ THEME TOGGLE ============ */
-  body{transition:background-color .3s ease, color .3s ease;}
+  /* Theme switching is deliberately instant.
+     A transition on a property whose value comes from a custom property can get
+     stuck: the element keeps painting the OLD colour after the variables change,
+     until something else forces a recompute (a scroll, for instance). That left
+     half the page in the previous theme. Suppressing every transition while the
+     variables swap avoids it. Hover and reveal transitions are unaffected, since
+     the class is only present for a single frame. */
+  html.theme-switching *,
+  html.theme-switching *::before,
+  html.theme-switching *::after{
+    transition:none !important;
+  }
   .theme-toggle{
     flex:none;
     display:inline-flex;
@@ -1874,6 +1885,8 @@
   if(themeMeta){ themeMeta.removeAttribute('media'); }
 
   function applyTheme(mode){
+    // Transitions must be off BEFORE the variables change: see .theme-switching.
+    root.classList.add('theme-switching');
     root.setAttribute('data-theme', mode);
     var isDark = mode === 'dark';
     themeToggle.setAttribute('aria-checked', isDark ? 'true' : 'false');
@@ -1881,6 +1894,13 @@
     if(themeLabel){ themeLabel.textContent = isDark ? 'Dark' : 'Light'; }
     if(themeMeta){ themeMeta.setAttribute('content', isDark ? '#0B0E14' : '#F7F8FC'); }
     document.dispatchEvent(new CustomEvent('themechange', { detail:{ theme:mode } }));
+    void root.offsetHeight;            // let the new colours settle with transitions off
+    // rAF is the right moment to re-enable them, but it can be throttled (background
+    // tab, low power mode). Leaving the class on would kill every hover and reveal
+    // transition on the page, so a timer guarantees cleanup either way.
+    var clearSwitching = function(){ root.classList.remove('theme-switching'); };
+    requestAnimationFrame(function(){ requestAnimationFrame(clearSwitching); });
+    setTimeout(clearSwitching, 150);
   }
 
   applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
